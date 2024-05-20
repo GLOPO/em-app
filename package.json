@@ -9,10 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.0.3",
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^8.3.5",
     "next": "14.2.3",
+    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.51.4"
+    "react-hook-form": "^7.51.4",
+    "rsuite": "^5.60.1"
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
