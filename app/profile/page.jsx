@@ -1,7 +1,7 @@
-import GridLayout from './components/GridLayout'
-import Navbar from './components/Navbar'
-import Profile from './components/Profile'
-import SideBar from './components/SideBar'
+import GridLayout from '@/app/components/GridLayout'
+import Navbar from '@/app/components/Navbar'
+import Profile from '@/app/components/Profile'
+import SideBar from '@/app/components/SideBar'
 
 const page = () => {
   return (
