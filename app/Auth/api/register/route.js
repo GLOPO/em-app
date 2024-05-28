@@ -1,18 +1,19 @@
-import { connectMongoDB } from "@/lib/mongodb";
-import User from "@/models/user";
-import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
+'use client'
 
-// this code is collecting data from signup or register form
+import { NextResponse } from "next/server";
+
+
 export async function POST(req) {
-    try {
-        const { email, username, password, confirm_password } = await req.json();
-        console.log(email, username, password, confirm_password);
-        const hashedPassword = await bcrypt.hash(password, 10);
-        await connectMongoDB();
-        await User.create({ email, username, password: hashedPassword });
-        return NextResponse.json({ message: "User registered" }, { status: 201 });
-    } catch (e) {
-        return NextResponse.json({ message: "Error Occured during registration" }, { status: 500 });
-    }
+  try {
+    const {username, email, password, confirm_password} = await res.json();
+
+    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedConfirmPassword = await bcrypt.hash(confirm_password, 10)
+    await connectMongoDB ();
+    await User.create({username, email, hashedPassword, hashedConfirmPassword})
+
+    return NextResponse.json({message: 'User registered.'}, {status: 201})
+  } catch (error) {
+    return NextResponse.json({message: 'An error occured while registering the uer'}, {status: 500})
+  }
 }
